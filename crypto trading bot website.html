@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Prometheus Crypto Trading Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+            text-align: center; /* Center text */
+            background-color: #000; /* Background color */
+            color: #0F0; /* Text color */
+            overflow: hidden; /* Hide overflow */
+            font-family: 'Roboto', sans-serif; /* Use Roboto font */
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.9); /* Darker semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.7); /* Enhanced shadow effect */
+            width: 90%; /* Width of the box */
+            max-width: 600px; /* Max width */
+            transition: transform 0.3s; /* Smooth hover effect */
+            position: relative; /* Position relative for absolute elements */
+        }
+        .container:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
+        }
+        h1, h2, p {
+            margin: 10px 0; /* Space above and below headings and paragraphs */
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #0F0; /* Green border */
+            border-radius: 5px; /* Rounded corners */
+            width: calc(100% - 22px); /* Full width minus padding */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0F0; /* Green background */
+            color: #000; /* Black text */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth background color change */
+        }
+        button:hover {
+            background-color: #00cc00; /* Darker green on hover */
+        }
+        .terms {
+            max-height: 200px; /* Limit height for scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+            color: white; /* White text for terms */
+            font-size: 12px; /* Smaller font size */
+            margin: 10px 0; /* Space above and below terms */
+            padding: 10px; /* Padding inside the terms box */
+            border: 1px solid #0F0; /* Green border */
+            border-radius: 5px; /* Rounded corners */
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+        }
+        canvas {
+            position: absolute; /* Position canvas behind content */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send canvas to back */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+    <div class="container">
+        <h1>Purchase the Prometheus Crypto Trading Bot</h1>
+        <h2>Price: $4,000 USD</h2>
+        <p>Why It's a Game-Changer:</p>
+        <p>Efficiency: Trades are executed in milliseconds, capturing opportunities you might miss manually.</p>
+        <p>Emotionless Trading: Say goodbye to FOMO and panic-selling; the bot relies on data-driven decisions.</p>
+        <p>Accessibility: Whether you're a beginner or an expert, the bot's Telegram interface is user-friendly.</p>
+        <p>Proven Results: The bot only copies traders with a high win rate and substantial profits, ensuring reliability.</p>
+        
+        <div class="terms">
+            <h3>Terms of Service</h3>
+            <p>Last Updated: March 19, 2025</p>
+            <p>Welcome to the Solana Copy Trading Bot (the "Service"), provided by Orca Capital ("we," "us," or "our"). By checking the box to agree to these Terms of Service ("Terms") or by accessing or using the Service, you ("you" or "User") agree to be bound by these Terms. If you do not agree to these Terms, you may not use the Service.</p>
+            <p>1. Acceptance of Terms: By using the Service, you confirm that you are at least 18 years old (or the age of majority in your jurisdiction) and have the legal capacity to enter into this agreement...</p>
+            <p>2. Description of Service: The Solana Copy Trading Bot is a software tool that monitors trading activity on the Solana blockchain...</p>
+            <p>3. Disclaimer of Liability for Losses: Cryptocurrency trading, including on the Solana network, involves significant risks...</p>
+            <p>4. Confidentiality of Technology: You agree to keep the technology, algorithms, and operational details of the Solana Copy Trading Bot confidential...</p>
+            <p>5. User Responsibilities: Wallet and Funds: You are responsible for setting up and maintaining a Solana wallet compatible with the Service...</p>
+            <p>6. Fees and Payment: The Service may charge fees for usage, which will be disclosed to you prior to initiating any paid features...</p>
+            <p>7. Termination: We may suspend or terminate your access to the Service at our sole discretion...</p>
+            <p>8. Intellectual Property: The Service, including its software, algorithms, design, and documentation, is the intellectual property of Orca Capital...</p>
+            <p>9. No Financial Advice: The Service does not provide financial, investment, or trading advice...</p>
+            <p>10. Limitation of Liability: To the maximum extent permitted by law, Orca Capital and its affiliates, officers, directors, employees, and agents will not be liable for any indirect, incidental, special, consequential, or punitive damages...</p>
+            <p>11. Indemnification: You agree to indemnify and hold harmless Orca Capital and its affiliates...</p>
+            <p>12. Governing Law and Dispute Resolution: These Terms are governed by the laws of [Your Jurisdiction, e.g., Delaware, USA]...</p>
+            <p>13. Changes to These Terms: We may modify these Terms at any time...</p>
+        </div>
+
+        <input type="text" id="fullName" placeholder="Enter your full name" required>
+        <button id="acceptTerms">I Accept the Terms</button>
+        
+        <p>Please send the payment to the following Solana address: <strong>BwQxsd8k2q4RzgV28SP1SSZCqtAJnzUUHuequfcwtBVm</strong></p>
+        
+        <p>For more information, please contact us through Telegram: <a href="https://t.me/donnieapeoff">@donnieapeoff</a>, <a href="https://t.me/diamondhand5">@diamondhand5</a></p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Black background with transparency
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0F0'; // Green text
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                drops[i]++;
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+            }
+        }
+
+        setInterval(draw, 33);
+    </script>
+</body>
+</html>
